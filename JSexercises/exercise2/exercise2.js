@@ -349,6 +349,8 @@ var g2 = greeter.bind(comp2);//And here another “this”
 setTimeout(g1, 3000);
 setTimeout(g2, 4000);
 
+console.log(g1.getName);
+
 
 
 

@@ -1,1 +1,1 @@
-exercise2
+# Exercise 2 javascript.
