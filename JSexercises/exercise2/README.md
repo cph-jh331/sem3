@@ -1,4 +1,4 @@
-# Exercise 2 javascript.
+# Exercise 2 Day-1+2 JS
 The tasks in the exercise is divided up into different js files.<br><br>
 JavaScript Functions is contained in jsFunction.js<br>
 Callbacks (with map, filter and forEach)' is in callbacks.js<br>
