@@ -42,5 +42,7 @@ Person.prototype.getInfo = function () {
 }
 
 var jens = new Person("Jens", "Jensen", 98);
+var knud = new Person("Knud", "Knudsen", 38);
 
 console.log(jens.getInfo());
+console.log(knud.getInfo());
