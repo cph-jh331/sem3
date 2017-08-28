@@ -24,9 +24,13 @@ function Person(firstName, lastName, age) {
     this.age = age;
 }
 
+/*
+    If you need to call this function, you need to remember
+    the (), else it will just return the actual function and
+    not the return value.
+*/
+Person.prototype.getInfo = function () {
+    return this.age + " " + this.lastName + " " + this.firstName;
+}
+
 var jens = new Person("Jens", "Jensen", 98);
-
-console.log(jens);
-
-
-
