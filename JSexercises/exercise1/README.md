@@ -1,1 +1,1 @@
-exercise1
+# Exercise 1 The JavaScript Array
