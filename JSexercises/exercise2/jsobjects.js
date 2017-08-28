@@ -19,6 +19,7 @@ for (property in bob) {
  * existing properties from an object (delete a property, 
  * and iterate over the properties again) 
  */
+
 delete bob.birthday;
 
 for (property in bob) {
