@@ -60,8 +60,8 @@ console.log(allUpperCase);
 
 // m) Create a new array containing all the names that start with either “l” or “L” (hint: use the filter function with a sufficient callback). 
 
-var namesWithL = all.filter(function (a) {
-    return a.charAt(0) == 'l' || a.charAt(0) == 'L';
+var namesWithL = all.filter(function (name) {
+    return name.toLocaleLowerCase().charAt(0) === 'l';
 });
 
 console.log(namesWithL);
