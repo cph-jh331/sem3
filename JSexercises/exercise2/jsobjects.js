@@ -42,7 +42,8 @@ for (property in bob) {
  * 
  * Everything is an object. Everything gets a prototype.
  * When you new a Person, it gets a references to the
- * Person.prototype
+ * Person.prototype. A new person has a __proto__ which is
+ * equal to the Person.prototype.
  */
 
 function Person(firstName, lastName, age) {
