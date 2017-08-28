@@ -3,13 +3,8 @@ var lessThan90 = myArray.filter(function (number) {
     return number < 90;
 });
 
-var addhtml = myArray.map(function (number) {
+var addhtml = lessThan90.map(function (number) {
     return "<tr>" + number + "</tr>";
-});
+}).join('');
 
-
-
-
-
-
-
+console.log(addhtml);
