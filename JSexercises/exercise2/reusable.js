@@ -55,8 +55,14 @@ Person.prototype.getInfo = function () {
 }
 
 var bob = new Person();
+var knud = new Person();
 console.log(bob.getInfo());
+console.log(knud.getInfo());
 bob.setName("bobby");
+knud.setName("knud");
 console.log(bob.getInfo());
+console.log(knud.getInfo());
 bob.setAge(40);
+knud.setAge(99);
 console.log(bob.getInfo());
+console.log(knud.getInfo());
