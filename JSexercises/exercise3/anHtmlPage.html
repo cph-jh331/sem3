@@ -5,20 +5,27 @@
     <title>Deadly test page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="simpleDom.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 </head>
 
-<body onload="changeColor()">
-    <div id="div1">
-        Insert doom
-    </div>
-    <div id="div2">
-        Insert doom
-    </div>
-    <div id="div3">
-        Insert doom
+<body onload="setColor()">
+    <div class="container">
+
+        <div id="div1">
+            Insert doom
+        </div>
+
+        <div id="div2">
+            Insert doom
+        </div>
+
+        <div id="div3">
+            Insert doom
+        </div>
+        <button class="btn btn-default" id="btn">CHANGE COLOR OF DIVS</button>
     </div>
 
 </body>
+<script src="simpleDom.js"></script>
 
 </html>
