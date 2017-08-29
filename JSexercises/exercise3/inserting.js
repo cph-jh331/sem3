@@ -28,8 +28,7 @@ function ulGenerator(nameArray) {
 function filterForName(newName) {
     var filteredNames = names.filter(function (name) {
         return name.toLocaleLowerCase() === newName.toLocaleLowerCase();
-    });
-    console.log(filteredNames.length);
+    });    
     return filteredNames.length === 0;
 }
 
