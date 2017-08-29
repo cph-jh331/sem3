@@ -1,16 +1,16 @@
-function setColor() {
-    var nodeArray = document.getElementsByTagName("div");
+function setTheColor() {
     var color = 'pink';
-    for (node in nodeArray) {
-        nodeArray[node].style.backgroundColor = color;
+    var divs = document.getElementsByTagName("div");
+    for (var index = 0; index < divs.length; index++) {
+        divs[index].style.backgroundColor = color;        
     }
 }
 
-function changeColor() {
-    var colors = ['orange', 'blue', 'black'];
-   element.getElementById("div1").style.backgroundColor = 'orange';
-    element.getElementById("div2").style.backgroundColor = 'blue';
-    element.getElementById("div3").style.backgroundColor = 'purple';
+function clickChangeColor(){
+        
+    document.getElementById("div1").style.backgroundColor = "orange";
+    document.getElementById("div2").style.backgroundColor = "blue";
+    document.getElementById("div3").style.backgroundColor = "teal";
 }
 
-document.getElementById("btn").onclick = changeColor;
+document.getElementById("btn").onclick = clickChangeColor;
