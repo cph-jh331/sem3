@@ -43,12 +43,34 @@ document.getElementById("div2").addEventListener("click", clickHandler, false);
  * So it bubbles up.
  */
 
+/*
 function clickHandler() {
     console.log("this: " + this.id);
     console.log("target property id: " + event.target.id);
 }
 
 document.getElementById("outer").addEventListener("click", clickHandler);
+*/
+
+
+/**
+ * 3) Add an empty paragraph tag, with an id, 
+ * to your HTML and change the code for both 
+ * exercises above, so that output is not 
+ * written to the console, but into this 
+ * paragraph.
+ * 
+ * Hint: Use the innerText property of an 
+ * Element
+ */
+
+function clickHandler() {
+    var str = "this.id: " + this.id + ". " + "target property id: " + event.target.id;
+    document.getElementById("logger").innerHTML = str;
+
+}
+
+document.getElementById("outer").addEventListener("click", clickHandler)
 
 
 
