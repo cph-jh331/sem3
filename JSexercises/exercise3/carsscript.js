@@ -14,7 +14,7 @@ var cars = [
     { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
 ];
 
-function makeCarTable() {
+function makeCarTable(carArray) {
     var carStr = "<table id='myTable' class='table'>"
         + "<thead>"
         + "<tr><th>id</th>"
@@ -24,7 +24,7 @@ function makeCarTable() {
         + "<th>price</th></tr>"
         + "</thead>"
         + "<tbody>";
-    carStr += cars.map(function (car) {
+    carStr += carArray.map(function (car) {
         return "<tr><td>" + car.id + "</td><td>" + car.year + "</td><td>"
             + car.make + "</td><td>" + car.model + "</td><td>"
             + car.price + "</td></td>";
@@ -34,6 +34,20 @@ function makeCarTable() {
     return carStr;
 }
 
-document.getElementById("insertTable").innerHTML = makeCarTable();
+function filterPrice() {
+    var value = document.getElementById("priceValue").value
+    if (value !== "") {
+        var carsFilteredPrice = cars.filter(function (car) {
+            return car.price < value;
+        });
+        document.getElementById("insertTable").innerHTML = makeCarTable(carsFilteredPrice);
+    } else {
+        document.getElementById("insertTable").innerHTML = makeCarTable(cars);
+    }
+}
+
+document.getElementById("insertTable").innerHTML = makeCarTable(cars);
+document.getElementById("priceBtn").addEventListener("click", filterPrice);
+//document.getElementById("priceValue").addEventListener("keyup", filterPrice);
 
 

@@ -26,6 +26,9 @@ function ulGenerator(nameArray) {
 }
 
 function filterForName(newName) {
+    if (newName === "") {
+        return false;
+    }
     var filteredNames = names.filter(function (name) {
         return name.toLocaleLowerCase() === newName.toLocaleLowerCase();
     });
@@ -37,13 +40,12 @@ function addName() {
     if (filterForName(name)) {
         names.push(name);
     }
-    document.getElementById("mytable").innerHTML = ulGenerator(names);
+    //document.getElementById("mytable").innerHTML = ulGenerator(names);
 }
 
 function threeInOne() {
     event.preventDefault();
-    var targetId = event.target.id;
-    switch (targetId) {
+    switch (event.target.id) {
         case "submitbtn":
             addName();
             break;
