@@ -30,7 +30,7 @@ function mul(displayValue) {
 
 function div(displayValue) {
     var divArray = displayValue.split("/");
-    var result = 1;
+    var result = divArray.shift();
     for (number in divArray) {
         result /= Number(divArray[number]);
     }
