@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <!--CDN Polyfills which should allow you to use fetch/promises from IE and older browsers -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+    </head>
+    <body onload="startGetTime()">
+        <div class="container">
+            <div class="jumbotron">
+                <div>
+                    <h1>The server time is:</h1>
+                    <h1 id ="time"></h1>                    
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -27,7 +27,7 @@ function makeCarTable(carArray) {
     carStr += carArray.map(function (car) {
         return "<tr><td>" + car.id + "</td><td>" + car.year + "</td><td>"
             + car.make + "</td><td>" + car.model + "</td><td>"
-            + car.price + "</td></td>";
+            + car.price + "</td></tr>";
     }).join('');
 
     carStr += "</tbody></table>";
