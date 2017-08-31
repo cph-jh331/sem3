@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    </head>
+    <body onload="makePersonTable()">
+        <div class="container">
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr><th>Firstname</th><th>Lastname</th><th>Phone</th></tr>
+                    </thead>
+                    <tbody id="personTable"></tbody>
+                </table>
+            </div>
+            <div>
+                <p> Firstname: <input id="firstName" type="text"/> Lastname: <input id="lastName" type="text"/> Phone: <input id="phoneNumb" type="text"/>
+                </p>
+                <button id="btnAddPerson" class="btn btn-default">Add Person</button>
+            </div>
+        </div>
+        <!--CDN Polyfills which should allow you to use fetch/promises from IE and older browsers -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
