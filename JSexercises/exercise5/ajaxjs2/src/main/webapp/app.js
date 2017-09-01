@@ -30,7 +30,7 @@ function getStrISO(targetId) {
 function hitCountry() {
     return event.target.id !== "svg2" && event.target.id !== "Large masses of water";
 }
-
+/*
 function getInfo() {
     console.log(event.target.id);
     if (hitCountry()) {
@@ -48,8 +48,38 @@ function getInfo() {
         });
     }
 }
+*/
+
+function getInfoWithProxy() {
+    console.log(event.target.id);
+    if (hitCountry()) {
+        var targetId = event.target.id;
+        if (lastTargetId !== "Hest!") {
+            document.getElementById(lastTargetId).style.fill = "c0c0c0";
+        }
+        lastTargetId = targetId;
+        document.getElementById(targetId).style.fill = "red";
+
+        var myHeaders = new Headers();
+        myHeaders.set('Content-Type', 'application/json');
+        myHeaders.append("X-Custom-Header", "givfstuff");
+        var str = getStrISO(targetId);
+        var data = JSON.stringify(str);
 
 
-document.getElementById("svg2").addEventListener("click", getInfo);
+        var promise = fetch("ProxyServlet", {
+            method: "POST",
+            headers: myHeaders,
+            body: data
+        });
+
+        promise.then(function (response) {
+            return response.json();
+        }).then(function (country) {
+            document.getElementById("insertInfo").innerHTML = infoGen(country).toString();
+        });
+    }
+}
 
 
+document.getElementById("svg2").addEventListener("click", getInfoWithProxy);

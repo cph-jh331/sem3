@@ -7,15 +7,11 @@ package servlet;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 import entity.Person;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,10 +27,10 @@ import javax.servlet.http.HttpServletResponse;
     "/PersonServlet"
 })
 public class PersonServlet extends HttpServlet {
-    
+
     private static List<Person> persons;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    
+
     private List<Person> createPersons()
     {
         List<Person> prs = new ArrayList<>();
@@ -42,14 +38,14 @@ public class PersonServlet extends HttpServlet {
         prs.add(new Person("Christian", "Hansen", "21885577"));
         prs.add(new Person("Knud", "Knudsen", "45885573"));
         prs.add(new Person("Øyvind", "Haraldsen", "30885539"));
-        
+
         return prs;
     }
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        
+
         response.setContentType("application/json;charset=UTF-8");
         String customHeader = request.getHeader("x-custom-header");
         if (customHeader.equals("givfstuff"))
@@ -60,9 +56,9 @@ public class PersonServlet extends HttpServlet {
         {
             addPerson(request, response);
         }
-        
+
     }
-    
+
     protected void addPerson(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         request.setCharacterEncoding("UTF-8");
@@ -70,7 +66,7 @@ public class PersonServlet extends HttpServlet {
         persons.add(person);
         getPersons(response);
     }
-    
+
     protected void getPersons(HttpServletResponse response) throws IOException
     {
         if (persons == null)
@@ -81,21 +77,20 @@ public class PersonServlet extends HttpServlet {
         {
             out.println(gson.toJson(persons));
         }
-        
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
         processRequest(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
         processRequest(request, response);
     }
-    
+
 }
