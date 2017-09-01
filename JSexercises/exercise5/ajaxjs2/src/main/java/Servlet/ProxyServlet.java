@@ -47,7 +47,6 @@ public class ProxyServlet extends HttpServlet {
     {
 
         String strIso = gson.fromJson(request.getReader(), String.class);
-        System.out.println("string info" + strIso);
         int index = strIso.indexOf('s');
         StringBuilder sb = new StringBuilder(strIso);
         sb.deleteCharAt(index);
