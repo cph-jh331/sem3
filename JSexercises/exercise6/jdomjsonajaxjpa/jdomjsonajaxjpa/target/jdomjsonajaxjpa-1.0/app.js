@@ -1,6 +1,5 @@
 
 function genSql(persons) {
-
     return  persons.map(function (person) {
         return "INSERT INTO names (name, surname, gender) VALUES ("
                 + "'" + person.name + "','" + person.surname + "','" + person.gender + "'"
