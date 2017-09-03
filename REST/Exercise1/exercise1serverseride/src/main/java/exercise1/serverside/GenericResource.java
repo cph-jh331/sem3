@@ -24,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import quoteexceptions.QuoteNotFoundException;
 
 /**
  * REST Web Service
@@ -64,7 +65,8 @@ public class GenericResource {
     @Path("/{id}")
     public String getQuote(@PathParam("id") int id)
     {
-        return gson.toJson(quotes.get(id));
+        Quote quote = quotes.get(id);
+        return gson.toJson(quote);
     }
 
     @GET
