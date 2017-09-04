@@ -1,4 +1,5 @@
 exercise1\serverside\ApplicationConfig.class
 exercise1\serverside\GenericResource$1.class
+quoteexceptions\QuoteNotFoundException.class
 entity\Quote.class
 exercise1\serverside\GenericResource.class
