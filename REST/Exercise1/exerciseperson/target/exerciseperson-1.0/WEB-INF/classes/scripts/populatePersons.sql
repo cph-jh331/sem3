@@ -1,0 +1,4 @@
+INSERT INTO person (FNAME, LNAME, PHONE) VALUES ('Bob', 'Hansen', '44332211');
+INSERT INTO person (FNAME, LNAME, PHONE) VALUES ('James', 'Jamesen', '22334455');
+INSERT INTO person (FNAME, LNAME, PHONE) VALUES ('Frans', 'Fransen', '44332211');
+INSERT INTO person (FNAME, LNAME, PHONE) VALUES ('Egil', 'Egilsen', '55332211');
