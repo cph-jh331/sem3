@@ -28,8 +28,7 @@ public class PersonResource {
     private UriInfo context;
     // SHOULD THESE BE STATIC?
     private EntityManagerFactory emf;
-    private PersonFacade pf;
-    private JSONConverter convert = new JSONConverter();
+    private PersonFacade pf;    
 
     public PersonResource()
     {
@@ -43,7 +42,7 @@ public class PersonResource {
     public String getPerson(@PathParam("id") int id)
     {
         Person p = pf.getPerson(id);
-        return convert.getJSONFromPerson(p);
+        return JSONConverter.getJSONFromPerson(p);
     }
 
     @GET
@@ -51,7 +50,7 @@ public class PersonResource {
     public String getAll()
     {
         List<Person> pList = pf.getPersons();
-        return convert.getJSONFromPerson(pList);
+        return JSONConverter.getJSONFromPerson(pList);
     }
 
     @POST
@@ -59,8 +58,8 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public String putJson(String content)
     {
-        Person person = convert.getPersonFromJson(content);
-        return convert.getJSONFromPerson(pf.addPerson(person));
+        Person person = JSONConverter.getPersonFromJson(content);
+        return JSONConverter.getJSONFromPerson(pf.addPerson(person));
 
     }
 }

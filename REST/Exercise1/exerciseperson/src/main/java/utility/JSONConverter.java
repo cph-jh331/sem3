@@ -16,19 +16,21 @@ public class JSONConverter {
 
     /*
         WHY IS THE SHIT BELOW STATIC?
-        HOW DO YOU TEST THE PERSON ONE?
+        They are static, so you do not need to new the JSONConverter in
+        the person resource.
+        HOW DO YOU TEST STATIC METHODS IN JUNIT?
      */
-    public Person getPersonFromJson(String js)
+    public static Person getPersonFromJson(String js)
     {
         return gson.fromJson(js, Person.class);
     }
 
-    public String getJSONFromPerson(Person p)
+    public static String getJSONFromPerson(Person p)
     {
         return gson.toJson(p);
     }
 
-    public String getJSONFromPerson(List<Person> persons)
+    public static String getJSONFromPerson(List<Person> persons)
     {
         return gson.toJson(persons);
     }
