@@ -3,8 +3,19 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    <body onload="getPersons()">
+        <div class="container">
+            <div id="tableDiv"></div>
+            <div>
+                <button id="refreshTableBtn" class="btn btn-secondary">Reload data</button>
+                <button id="addPersonBtn" class="btn btn-success">Add new person</button>
+                
+            </div>
+
+        </div>
+        
     </body>
+    <script src="app.js"></script>
 </html>

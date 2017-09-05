@@ -14,6 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -28,7 +29,7 @@ public class PersonResource {
     private UriInfo context;
     // SHOULD THESE BE STATIC?
     private EntityManagerFactory emf;
-    private PersonFacade pf;    
+    private PersonFacade pf;
 
     public PersonResource()
     {
@@ -60,6 +61,15 @@ public class PersonResource {
     {
         Person person = JSONConverter.getPersonFromJson(content);
         return JSONConverter.getJSONFromPerson(pf.addPerson(person));
-
     }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deletePerson(@PathParam("id") int id)
+    {
+        return JSONConverter.getJSONFromPerson(pf.deletePerson(id));
+    }
+
 }
