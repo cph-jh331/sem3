@@ -13,8 +13,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -70,5 +72,24 @@ public class PersonResource {
         persons.put(nextId, p);
         nextId++;
         return gson.toJson(p);
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String updatePerson(String body)
+    {
+        Person person = gson.fromJson(body, Person.class);
+        persons.put(person.getId(), person);
+        return gson.toJson(person);
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deleteJson(@PathParam("id") int id)
+    {
+        return gson.toJson(persons.remove(id));
+
     }
 }

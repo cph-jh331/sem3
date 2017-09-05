@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    </head>
+    <body onload="getRandomQuote()">
+        <div class="container">
+            <button id="getNewQuote" class="btn btn-default">New quote</button>
+            <div class="jumbotron">
+                <h2 id="quoteOfTheDay">Hello World!</h2>
+            </div>
+            <div>
+                <input id="inputText" type="text"/>
+                <button id="addNewQuote" class="btn btn-success">Add new quote</button> 
+            </div>
+            <div class="jumbotron">
+                <h3>Delete a quote...</h3>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="quoteId">Quote id</label>
+                        <input id="quoteId"  class="form-control"/>                
+
+                        <button id="editQuoteBtn" class="btn btn-warning">Edit quote</button>
+                        <button id="deleteQuoteBtn" class="btn btn-danger">Delete quote</button>
+                        <textarea id="quoteForDeletion" style="width: 100%" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
