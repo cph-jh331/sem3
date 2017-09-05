@@ -8,7 +8,9 @@ package sem3.exercise1quotes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Quote;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.ws.rs.core.Context;
@@ -67,14 +69,16 @@ public class QuoteResource {
         int id = rand.nextInt(quotes.size()) + 1;
         return gson.toJson(quotes.get(id));
     }
-
+/*
     @GET
     @Path("all")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAll()
     {
-        return (gson.toJson(quotes.values()));
+        Collection<Quote> qList = quotes.values();
+        return (gson.toJson(qList));
     }
+*/
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
