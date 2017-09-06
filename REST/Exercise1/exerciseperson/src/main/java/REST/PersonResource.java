@@ -7,6 +7,7 @@ package REST;
 
 import Entity.Person;
 import Entity.PersonFacade;
+import deploy.DeploymentConfig;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,6 +18,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -27,7 +29,6 @@ public class PersonResource {
 
     @Context
     private UriInfo context;
-    // SHOULD THESE BE STATIC?
     private EntityManagerFactory emf;
     private PersonFacade pf;
 
@@ -70,6 +71,16 @@ public class PersonResource {
     public String deletePerson(@PathParam("id") int id)
     {
         return JSONConverter.getJSONFromPerson(pf.deletePerson(id));
+    }
+
+    @PUT
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String updatePerson(@PathParam("id") int id, String body)
+    {
+        Person p = JSONConverter.getPersonFromJson(body);
+        return JSONConverter.getJSONFromPerson(pf.editPerson(p));
     }
 
 }

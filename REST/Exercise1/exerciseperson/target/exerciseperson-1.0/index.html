@@ -5,17 +5,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
-    <body onload="getPersons()">
+    <body>
         <div class="container">
             <div id="tableDiv"></div>
             <div>
                 <button id="refreshTableBtn" class="btn btn-secondary">Reload data</button>
-                <button id="addPersonBtn" class="btn btn-success">Add new person</button>
-                
+            </div>     
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="firstName"> First Name: </label>
+                    <input type="text" id="firstName" class="form-control"/>
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" id="lastName" class="form-control"/>
+                    <label for="phone">phone: </label>
+                    <input type="text" id="phone" class="form-control"/>
+                    <button id="addPersonBtn" class="btn btn-success">Add new person</button>
+                </div>
             </div>
-
         </div>
-        
     </body>
     <script src="app.js"></script>
 </html>

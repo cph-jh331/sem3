@@ -3,6 +3,7 @@ Entity\PersonFacade.class
 Entity\IPersonFacade.class
 utility\JSONConverter.class
 Entity\Person_.class
+deploy\DeploymentConfig.class
 schemacontrol\SchemaBuilder.class
 REST\ApplicationConfig.class
 Entity\Person.class
