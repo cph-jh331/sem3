@@ -5,11 +5,10 @@
  */
 package REST;
 
-import Entity.Person;
-import Entity.PersonFacade;
-import deploy.DeploymentConfig;
+import entity.Person;
+import entity.PersonFacade;
+
 import java.util.List;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -22,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import utility.JSONConverter;
 
 @Path("person")
@@ -29,13 +29,12 @@ public class PersonResource {
 
     @Context
     private UriInfo context;
-    private EntityManagerFactory emf;
     private PersonFacade pf;
 
     public PersonResource()
     {
-        emf = Persistence.createEntityManagerFactory("jpaPU");
-        pf = new PersonFacade(emf);
+        pf = new PersonFacade();
+        pf.addEntityManagerFactory(Persistence.createEntityManagerFactory("jpaPU"));
     }
 
     @GET
@@ -43,6 +42,7 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getPerson(@PathParam("id") int id)
     {
+
         Person p = pf.getPerson(id);
         return JSONConverter.getJSONFromPerson(p);
     }
@@ -58,10 +58,12 @@ public class PersonResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String putJson(String content)
+    public Response putJson(String content)
     {
         Person person = JSONConverter.getPersonFromJson(content);
-        return JSONConverter.getJSONFromPerson(pf.addPerson(person));
+        return Response.status(Response.Status.CREATED)
+                .entity(JSONConverter.getJSONFromPerson(pf.addPerson(person)))
+                .build();
     }
 
     @DELETE

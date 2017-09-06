@@ -1,6 +1,6 @@
 package utility;
 
-import Entity.Person;
+import entity.Person;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.List;

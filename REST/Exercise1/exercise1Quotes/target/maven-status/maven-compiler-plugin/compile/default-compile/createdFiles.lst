@@ -1,3 +1,10 @@
+entity\ErrorMessage.class
+exception\GenericException.class
+exception\NoQuotesCreatedYetMapper.class
 sem3\exercise1quotes\QuoteResource.class
+exception\GenericExceptionMapper.class
+exception\QuoteNotFoundException.class
+exception\NoQuotesCreatedYetException.class
+exception\QuoteNotFoundMapper.class
 entity\Quote.class
 sem3\exercise1quotes\ApplicationConfig.class

@@ -4,7 +4,7 @@
 
     <groupId>sem3</groupId>
     <artifactId>exercise1Quotes</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>war</packaging>
 
     <name>exercise1Quotes</name>

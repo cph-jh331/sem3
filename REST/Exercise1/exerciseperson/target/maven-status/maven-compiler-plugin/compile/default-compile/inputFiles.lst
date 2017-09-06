@@ -1,9 +1,9 @@
-C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\deploy\DeploymentConfig.java
-C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\Entity\PersonFacade.java
+C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\entity\PersonFacade.java
 C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\schemacontrol\SchemaBuilder.java
+C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\deploy\DeploymentConfiguration.java
 C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\REST\PersonResource.java
 C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\testering\Testing.java
-C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\Entity\IPersonFacade.java
+C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\entity\IPersonFacade.java
 C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\REST\ApplicationConfig.java
 C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\utility\JSONConverter.java
-C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\Entity\Person.java
+C:\Users\Bloch\Desktop\3-semester\sem3\REST\Exercise1\exerciseperson\src\main\java\entity\Person.java

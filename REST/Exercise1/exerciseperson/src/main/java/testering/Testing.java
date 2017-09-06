@@ -1,7 +1,7 @@
 package testering;
 
-import Entity.Person;
-import Entity.PersonFacade;
+import entity.Person;
+import entity.PersonFacade;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.List;
