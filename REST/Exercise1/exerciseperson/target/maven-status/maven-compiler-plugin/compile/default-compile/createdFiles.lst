@@ -3,7 +3,6 @@ exception\ErrorMessage.class
 exception\CannotDeletePersonExceptionMapper.class
 entity\Person.class
 exception\CannotEditException.class
-entity\Person_.class
 exception\NotFoundExceptionMapper.class
 entity\IPersonFacade.class
 deploy\DeploymentConfiguration.class

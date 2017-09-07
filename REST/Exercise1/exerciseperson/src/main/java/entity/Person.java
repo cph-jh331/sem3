@@ -12,12 +12,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author Bloch
  */
 @Entity
+@Table(name = "person")
 @NamedQueries(
         {
             @NamedQuery(name = "Person.getAllPersons", query = "SELECT p FROM Person p")
