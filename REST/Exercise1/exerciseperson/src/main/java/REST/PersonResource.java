@@ -11,6 +11,7 @@ import entity.PersonFacade;
 import exception.CannotDeletePersonException;
 import exception.CannotEditException;
 import exception.FirstOrLastNameException;
+import exception.IdIsNotIntegerException;
 import exception.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.Persistence;
@@ -44,9 +45,17 @@ public class PersonResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getPerson(@PathParam("id") int id)
+    public Response getPerson(@PathParam("id") String id)
     {
-        Person p = pf.getPerson(id);
+        int anid;
+        try
+        {
+            anid = Integer.parseInt(id);
+        } catch (NumberFormatException e)
+        {
+            throw new IdIsNotIntegerException();
+        }
+        Person p = pf.getPerson(anid);
         if (p == null)
         {
             throw new PersonNotFoundException();

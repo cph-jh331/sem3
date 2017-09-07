@@ -1,3 +1,19 @@
+function handleErrors(response) {
+    if (!response.ok) {
+        var error = new Error(response.statusText);
+        error = response;
+        throw error;
+    }
+    return response.json();
+}
+
+function errorMessage(errorJson) {
+    if (errorJson !== undefined) {
+        message = errorJson.errorMessage;
+        alert(message);
+    }
+}
+
 function getRandomQuote() {
     var myHeaders = new Headers();
     myHeaders.set('Content-Type', 'application/json');
@@ -5,11 +21,15 @@ function getRandomQuote() {
         method: "GET",
         headers: myHeaders
     });
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (quote) {
-        document.getElementById("quoteOfTheDay").innerText = quote.quote;
-    });
+    promise.then(handleErrors)
+            .then(function (quote) {
+                document.getElementById("quoteOfTheDay").innerText = quote.quote;
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
+    ;
 }
 
 function getSpecificQuote() {
@@ -22,21 +42,15 @@ function getSpecificQuote() {
             method: "GET",
             headers: myHeaders
         });
-        promise.then(function (response) {
-            if (!response.ok) {
-                throw response;
-            }
-            return response.json();
-        }).then(function (quote) {
-            console.log(quote);
-            document.getElementById("quoteForDeletion").value = quote.quote;
-        }).catch(function (error) {
-            return error.json();
-        }).then(function (errorMessage)
-        {
-            console.log("forsatan" + errorMessage.errorMessage);
-            alert(errorMessage.errorMessage);
-        });
+        promise.then(handleErrors)
+                .then(function (quote) {
+                    console.log(quote);
+                    document.getElementById("quoteForDeletion").value = quote.quote;
+                })
+                .catch(function (error) {
+                    return error.json();
+                })
+                .then(errorMessage);
     }
 }
 
@@ -50,20 +64,16 @@ function deleteQuote() {
                 headers: myHeaders
             }
     );
-    promise.then(function (response) {
-        if (!response.ok) {
-            throw response;
-        }
-        return response.json();
-    }).then(function (quote) {
-        document.getElementById("quoteOfTheDay").innerText = "Deleted quote: "
-                + quote.quote + " with id: " + quote.id;
-        document.getElementById("quoteForDeletion").value = "";
-    }).catch(function (error) {
-        return error.json();
-    }).then(function (em) {
-        alert(em.errorMessage + " code: " + em.errorCode);
-    });
+    promise.then(handleErrors)
+            .then(function (quote) {
+                document.getElementById("quoteOfTheDay").innerText = "Deleted quote: "
+                        + quote.quote + " with id: " + quote.id;
+                document.getElementById("quoteForDeletion").value = "";
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
 }
 
 function editQuote() {
@@ -78,15 +88,16 @@ function editQuote() {
                 headers: myHeaders,
                 body: data
             });
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (quote) {
-        document.getElementById("quoteOfTheDay").innerText = "Edited quote to: "
-                + quote.quote + " with the id of " + quote.id;
-        document.getElementById("quoteForDeletion").value = "";
-    }).catch(function (error) {
-        alert(error.json());
-    });
+    promise.then(handleErrors)
+            .then(function (quote) {
+                document.getElementById("quoteOfTheDay").innerText = "Edited quote to: "
+                        + quote.quote + " with the id of " + quote.id;
+                document.getElementById("quoteForDeletion").value = "";
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
 }
 
 function addQuote() {
@@ -101,11 +112,15 @@ function addQuote() {
                 headers: myHeaders,
                 body: data}
     );
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (quote) {
-        document.getElementById("quoteOfTheDay").innerText = "Added: " + quote.quote + " with id=" + quote.id;
-    });
+    promise.then(handleErrors)
+            .then(function (quote) {
+                document.getElementById("quoteOfTheDay").innerText = "Added: " + quote.quote + " with id=" + quote.id;
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
+
     document.getElementById("inputText").value = "";
 }
 
