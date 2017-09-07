@@ -31,6 +31,9 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources)
     {
         resources.add(REST.PersonResource.class);
+        resources.add(exception.CannotDeletePersonExceptionMapper.class);
+        resources.add(exception.CannotEditExceptionMapper.class);
+        resources.add(exception.FirstOrLastNameExceptionMapper.class);
         resources.add(exception.PersonNotFoundExceptionMapper.class);
     }
 

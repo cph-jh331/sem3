@@ -8,6 +8,9 @@ package REST;
 import deploy.DeploymentConfiguration;
 import entity.Person;
 import entity.PersonFacade;
+import exception.CannotDeletePersonException;
+import exception.CannotEditException;
+import exception.FirstOrLastNameException;
 import exception.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.Persistence;
@@ -41,14 +44,17 @@ public class PersonResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPerson(@PathParam("id") int id)
-    {   
+    public Response getPerson(@PathParam("id") int id)
+    {
         Person p = pf.getPerson(id);
-        if(p == null){
-            System.out.println("bob");
-            throw new PersonNotFoundException("No person with that id");
+        if (p == null)
+        {
+            throw new PersonNotFoundException();
         }
-        return JSONConverter.getJSONFromPerson(p);
+
+        return Response.status(Response.Status.OK)
+                .entity(JSONConverter.getJSONFromPerson(p))
+                .build();
     }
 
     @GET
@@ -65,6 +71,11 @@ public class PersonResource {
     public Response putJson(String content)
     {
         Person person = JSONConverter.getPersonFromJson(content);
+        if (person.getfName().equals("") || person.getlName().equals(""))
+        {
+            throw new FirstOrLastNameException();
+        }
+
         return Response.status(Response.Status.CREATED)
                 .entity(JSONConverter.getJSONFromPerson(pf.addPerson(person)))
                 .build();
@@ -76,6 +87,11 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public String deletePerson(@PathParam("id") int id)
     {
+        Person person = pf.getPerson(id);
+        if (person == null)
+        {
+            throw new CannotDeletePersonException();
+        }
         return JSONConverter.getJSONFromPerson(pf.deletePerson(id));
     }
 
@@ -86,6 +102,15 @@ public class PersonResource {
     public String updatePerson(@PathParam("id") int id, String body)
     {
         Person p = JSONConverter.getPersonFromJson(body);
+        if (p.getfName().equals("") || p.getlName().equals(""))
+        {
+            throw new FirstOrLastNameException();
+        }
+
+        if (pf.getPerson(p.getId().intValue()) == null)
+        {
+            throw new CannotEditException();
+        }
         return JSONConverter.getJSONFromPerson(pf.editPerson(p));
     }
 

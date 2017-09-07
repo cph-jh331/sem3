@@ -1,4 +1,20 @@
 refreshPersons();
+
+function handleErrors(response) {
+    if (!response.ok) {
+        var error = new Error(response.statusText);
+        error = response;
+        throw error;
+    }
+    return response.json();
+}
+
+function errorMessage(errorJson) {
+    if (errorJson !== undefined) {
+        message = errorJson.message;
+        alert(message);
+    }
+}
 function genPersonTable(persons) {
 
     return persons.map(function (person) {
@@ -22,31 +38,40 @@ function addPerson() {
     var myHeaders = new Headers();
     myHeaders.set('Content-Type', 'application/json');
 
+    //why does it say not found here?
     var promise = fetch("api/person",
             {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify(person)
             });
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (person) {
-        alert("Added person" + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone);
-        document.getElementById("firstName1").value = "";
-        document.getElementById("lastName1").value = "";
-        document.getElementById("phone1").value = "";
-        refreshPersons();
-    });
+    promise.then(handleErrors)
+            .then(function (person) {
+                alert("Added person" + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone);
+                document.getElementById("firstName1").value = "";
+                document.getElementById("lastName1").value = "";
+                document.getElementById("phone1").value = "";
+                refreshPersons();
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
 }
 
 function refreshPersons() {
     var promise = fetch("api/person");
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (persons) {
-        //create table
-        document.getElementById("tableBody").innerHTML = genPersonTable(persons);
-    });
+    promise.then(handleErrors)
+            .then(function (persons) {
+                //create table
+                document.getElementById("tableBody").innerHTML = genPersonTable(persons);
+            })
+            .catch(function (error) {
+                console.log("error!!!!!!");
+                return error.json();
+            })
+            .then(errorMessage);
+    ;
 }
 
 function target() {
@@ -67,14 +92,18 @@ function setEditPerson(targetId) {
                 method: "GET",
                 headers: myHeaders
             });
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (person) {
-        document.getElementById("editPersonId").innerText = person.id;
-        document.getElementById("editFirstName").value = person.fName;
-        document.getElementById("editLastName").value = person.lName;
-        document.getElementById("editPhone").value = person.phone;
-    });
+    promise.then(handleErrors)
+            .then(function (person) {
+                document.getElementById("editPersonId").innerText = person.id;
+                document.getElementById("editFirstName").value = person.fName;
+                document.getElementById("editLastName").value = person.lName;
+                document.getElementById("editPhone").value = person.phone;
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
+
 }
 
 function editPerson() {
@@ -94,13 +123,15 @@ function editPerson() {
                 body: JSON.stringify(person)
             });
 
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (person) {
-        alert("Edited: " + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone + ".");
-        refreshPersons();
-    });
-
+    promise.then(handleErrors)
+            .then(function (person) {
+                alert("Edited: " + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone + ".");
+                refreshPersons();
+            })
+            .catch(function (error) {
+                return error.json();
+            })
+            .then(errorMessage);
 }
 
 function deletePerson(targetId) {
@@ -112,16 +143,18 @@ function deletePerson(targetId) {
                 headers: myHeaders
             }
     );
-
-    promise.then(function (response) {
-        return response.json();
-    }).then(function (person) {
-        alert("Delete person: " + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone + ".");
-        refreshPersons();
-    });
+    promise.then(handleErrors)
+            .then(function (person) {
+                alert("Delete person: " + person.id + ", " + person.fName + ", " + person.lName + ", " + person.phone + ".");
+                refreshPersons();
+            })
+            .catch(function (errorResponse) {
+                return errorResponse.json();
+            })
+            .then(errorMessage);
 }
 
-document.getElementById("editPersonBtn").onclick = editPerson;
+document.getElementById("editPersonBtnInModal").onclick = editPerson;
 
 document.getElementById("tableBody").addEventListener("click", target);
 
