@@ -1,10 +1,13 @@
 REST\PersonResource.class
+exception\ErrorMessage.class
+entity\Person.class
+entity\Person_.class
+entity\IPersonFacade.class
 deploy\DeploymentConfiguration.class
 utility\JSONConverter.class
 schemacontrol\SchemaBuilder.class
-entity\Person.class
 REST\ApplicationConfig.class
-entity\Person_.class
+exception\PersonNotFoundException.class
 testering\Testing.class
 entity\PersonFacade.class
-entity\IPersonFacade.class
+exception\PersonNotFoundExceptionMapper.class

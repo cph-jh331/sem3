@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class DeploymentConfiguration implements ServletContextListener {
 
-    public static String PU_NAME = "jpuPU";
+    public static String PU_NAME = "jpaPU";
 
     @Override
     public void contextInitialized(ServletContextEvent sce)

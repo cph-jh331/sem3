@@ -26,11 +26,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
-/**
- * REST Web Service
- *
- * @author bloch
- */
 @Path("quote")
 public class QuoteResource {
 

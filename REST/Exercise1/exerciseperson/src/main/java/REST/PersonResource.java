@@ -5,9 +5,10 @@
  */
 package REST;
 
+import deploy.DeploymentConfiguration;
 import entity.Person;
 import entity.PersonFacade;
-
+import exception.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
@@ -34,16 +35,19 @@ public class PersonResource {
     public PersonResource()
     {
         pf = new PersonFacade();
-        pf.addEntityManagerFactory(Persistence.createEntityManagerFactory("jpaPU"));
+        pf.addEntityManagerFactory(Persistence.createEntityManagerFactory(DeploymentConfiguration.PU_NAME));
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getPerson(@PathParam("id") int id)
-    {
-
+    {   
         Person p = pf.getPerson(id);
+        if(p == null){
+            System.out.println("bob");
+            throw new PersonNotFoundException("No person with that id");
+        }
         return JSONConverter.getJSONFromPerson(p);
     }
 
