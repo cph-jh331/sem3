@@ -6,5 +6,5 @@
 * Error Handling with JAX RS - Person = exerciseperson
 * exam-preparation_REST_API = RestAndJson
 
-http://46.101.216.31/exercise1Quotes-1.1/
+http://46.101.216.31/exercise1Quotes-1.1/<br>
 http://46.101.216.31/exerciseperson-1.0/
