@@ -18,6 +18,7 @@ public class ApplicationConfig extends Application {
     {
         resources.add(exception.GenericExceptionMapper.class);
         resources.add(exception.NoQuotesCreatedYetMapper.class);
+        resources.add(exception.PathParamExceptionMapper.class);
         resources.add(exception.QuoteNotFoundMapper.class);
         resources.add(sem3.exercise1quotes.QuoteResource.class);
     }

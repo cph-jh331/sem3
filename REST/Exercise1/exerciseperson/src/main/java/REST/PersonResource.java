@@ -45,17 +45,10 @@ public class PersonResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getPerson(@PathParam("id") String id)
+    public Response getPerson(@PathParam("id") int id)
     {
-        int anid;
-        try
-        {
-            anid = Integer.parseInt(id);
-        } catch (NumberFormatException e)
-        {
-            throw new IdIsNotIntegerException();
-        }
-        Person p = pf.getPerson(anid);
+
+        Person p = pf.getPerson(id);
         if (p == null)
         {
             throw new PersonNotFoundException();

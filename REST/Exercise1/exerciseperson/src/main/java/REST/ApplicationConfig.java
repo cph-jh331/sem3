@@ -34,7 +34,10 @@ public class ApplicationConfig extends Application {
         resources.add(exception.CannotDeletePersonExceptionMapper.class);
         resources.add(exception.CannotEditExceptionMapper.class);
         resources.add(exception.FirstOrLastNameExceptionMapper.class);
+        resources.add(exception.NotFoundExceptionMapper.class);
+        resources.add(exception.PathParamExceptionMapper.class);
         resources.add(exception.PersonNotFoundExceptionMapper.class);
+        resources.add(exception.RuntimeExceptionMapper.class);
     }
 
 }

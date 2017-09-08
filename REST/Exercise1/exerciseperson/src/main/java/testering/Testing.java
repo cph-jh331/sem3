@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import utility.JSONConverter;
 
 public class Testing {
     
@@ -46,7 +47,7 @@ public class Testing {
                 + "  \"lName\": \"test\",\n"
                 + "  \"phone\": \"11111111\"\n"
                 + "}";
-        System.out.println(gson.fromJson(json, Person.class));
+        System.out.println(gson.fromJson(json, Person.class));        
         
     }
     

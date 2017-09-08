@@ -11,20 +11,10 @@ package exception;
  */
 public class IdIsNotIntegerException extends RuntimeException {
 
-    /**
-     * Creates a new instance of <code>IdIsNotIntegerException</code> without
-     * detail message.
-     */
     public IdIsNotIntegerException()
     {
     }
 
-    /**
-     * Constructs an instance of <code>IdIsNotIntegerException</code> with the
-     * specified detail message.
-     *
-     * @param msg the detail message.
-     */
     public IdIsNotIntegerException(String msg)
     {
         super(msg);

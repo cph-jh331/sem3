@@ -23,6 +23,7 @@ public class PersonFacade implements IPersonFacade {
         return emf.createEntityManager();
     }
 
+    //burde nok ikke være here, men bare være der i constructoren.
     @Override
     public void addEntityManagerFactory(EntityManagerFactory emf)
     {

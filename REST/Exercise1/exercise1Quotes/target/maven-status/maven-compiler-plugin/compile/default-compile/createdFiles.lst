@@ -1,6 +1,7 @@
 entity\ErrorMessage.class
 exception\GenericException.class
 exception\NoQuotesCreatedYetMapper.class
+exception\PathParamExceptionMapper.class
 sem3\exercise1quotes\QuoteResource.class
 exception\GenericExceptionMapper.class
 exception\QuoteNotFoundException.class

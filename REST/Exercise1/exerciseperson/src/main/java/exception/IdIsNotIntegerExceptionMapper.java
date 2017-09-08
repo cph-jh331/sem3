@@ -25,7 +25,10 @@ public class IdIsNotIntegerExceptionMapper implements ExceptionMapper<IdIsNotInt
         err.setDescription("Id was invalid");
         err.setMessage("Id was not an integer");
 
-        return Response.status(404).entity(gson.toJson(err)).type(MediaType.APPLICATION_JSON).build();
+        return Response.status(404)
+                .entity(gson.toJson(err))
+                .type(MediaType.APPLICATION_JSON)
+                .build();
     }
 
 }
