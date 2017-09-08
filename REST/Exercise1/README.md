@@ -1,6 +1,10 @@
-# REST with JAX RS Quote and Person exercises.
+# REST with JAX RS exercise
 
-* REST with JAX RS (Quotes)
-* REST with JAX RS (Persons)
-* Error Handling with JAX RS - Quotes
-* Error Handling with JAX RS - Person
+* REST with JAX RS (Quotes) = exercise1Quotes
+* REST with JAX RS (Persons) = exerciseperson
+* Error Handling with JAX RS - Quotes = exercise1Quotes
+* Error Handling with JAX RS - Person = exerciseperson
+* exam-preparation_REST_API = RestAndJson
+
+http://46.101.216.31/exercise1Quotes-1.1/
+http://46.101.216.31/exerciseperson-1.0/
