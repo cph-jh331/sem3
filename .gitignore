@@ -9,6 +9,3 @@ nbdist/
 
 ### Java ###
 *.class
-/REST/Exercise1/RestAndJson/target/
-/REST/Exercise1/RestAndRestApi/target/
-/REST/Exercise1/RESTandRESTAPIs/target/

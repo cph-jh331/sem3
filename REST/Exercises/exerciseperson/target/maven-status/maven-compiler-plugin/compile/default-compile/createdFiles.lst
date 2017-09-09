@@ -9,11 +9,11 @@ schemacontrol\SchemaBuilder.class
 REST\ApplicationConfig.class
 exception\CannotEditExceptionMapper.class
 exception\FirstOrLastNameExceptionMapper.class
-testering\Testing.class
 exception\IdIsNotIntegerException.class
 exception\PathParamExceptionMapper.class
 entity\Person.class
 exception\CannotEditException.class
+main\Testing.class
 utility\JSONConverter.class
 exception\PersonNotFoundException.class
 exception\FirstOrLastNameException.class
