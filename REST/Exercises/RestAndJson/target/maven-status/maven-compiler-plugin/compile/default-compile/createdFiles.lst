@@ -1,0 +1,5 @@
+entity\Generator.class
+entity\Person.class
+rest\GeneratorResource.class
+testering\Test.class
+rest\ApplicationConfig.class

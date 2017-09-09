@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="tableDiv">
+                <table id="personTable" class="table">
+                    <thead>
+                        <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Age</th></tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>    
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="numberOfPersons" class="form-control"> Number of persons: </label>
+                    <input id="numberOfPersons" type="number" class="form-control"/>
+                    <label for="startId" class="form-control"> Start id value:</label>
+                    <input id="startId" type="number" class="form-control"/>
+                    <button id="refreshTableBtn" class="btn btn-default">get data</button>
+
+                </div>
+            </div>
+        </div>  
+        <script src="scripts/app.js"></script>
+    </body>
+</html>
